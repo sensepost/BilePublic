@@ -1,0 +1,45 @@
+BiLE public release data
+2004/10/26
+-------------------------
+
+For BiLE to work you'll need:
+- httrack (just about any version would do)
+
+CPAN modules:
+- SOAP::Lite
+- HTML::LinkExtor
+
+And a valid Google API key (api.google.com).
+
+Step zero - configure the constants listed in bile-public-ext.pl. These are:
+
+my $GOOGLEPAGECOUNT=5; 
+#How many seconds to wait for a page on Google
+
+my $HTTRACKTIMEOUT=60; 
+#How long to wait for the mirror of a site to complete
+
+my $HTTRACKTEMPDIR="/tmp"; 
+# Where to store temporary mirrors
+
+my $HTTRACKCMD="/usr/bin/httrack";
+# The location of the HTTtrack executable
+
+my $GOOGLEKEY="<<INSERT YOUR GOOGLE API KEY HERE>>";
+# Your Google API key
+
+my $GOOGLE_WSDL="file:GoogleSearch.wsdl";
+# Location of the Google WSDL file
+
+Step one would be to run bile-public-ext.pl. It takes two arguments:
+- argument one: the web site (e.g. www.abc.com)
+- argument two: the output file (where the pairs will be written to)
+
+Step two - use bile-public-weigh.pl to compute the weights:
+- argument one: the web site 
+- argument two: the input file containing the pairs (generated in step one)
+- argument three: the output file - where the weights will be written
+
+
+Good luck and enjoy.
+RT
